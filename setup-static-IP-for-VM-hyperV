@@ -1,0 +1,5 @@
+1/ Create new Vswitch: Go to the server (under HyperV Manager) > Virtual Switch Manager > Internal Vswitch
+2/ open privileged Power shell: 
+- Get-NetAdapter: get the InterfaceIndex 86 of the newly created Vswitch
+- Setup default gw: New-NetIPAddress -IPAddress 192.168.132.1 -PrefixLength 24 -InterfaceIndex 86
+- Setup network: New-NetNat -Name NatSwitchHyperV -InternalIPInterfaceAddressPrefix 192.168.132.0/24
